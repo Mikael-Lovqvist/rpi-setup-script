@@ -18,8 +18,9 @@ min_boot_size = 512 << 20	#512M
 first_time_setup_actions = [
 	#Commands can be copy or symlink
 	#Arguments that are prefixed with L: or T: will be resolved to local or target files relative to mount_dir
-	['copy', 		'L:payloads/first-time-setup.service',					'T:/etc/systemd/system/first-time-setup.service'],
-	['copy', 		'L:payloads/first-time-setup.sh', 						'T:/usr/local/bin/first-time-setup.sh'],
+	['copy', 		'L:payloads/config.txt',								'T:/boot/'],
+	['copy', 		'L:payloads/first-time-setup.service',					'T:/etc/systemd/system/'],
+	['copy', 		'L:payloads/first-time-setup.sh', 						'T:/usr/local/bin/'],
 	['chmod', 		'+x', 													'T:/usr/local/bin/first-time-setup.sh'],
 	['symlink', 	'T:/etc/systemd/system/first-time-setup.service', 		'T:/etc/systemd/system/multi-user.target.wants/'],
 ]
@@ -207,7 +208,7 @@ def do_all_the_things(check_partition_tables=True, create_file_systems=True, dow
 		print('Ejecting device')
 		do_eject_device()
 
-# For being Selective:
+# For being selective:
 
 # do_all_the_things(
 # 	check_partition_tables=False,
@@ -218,8 +219,8 @@ def do_all_the_things(check_partition_tables=True, create_file_systems=True, dow
 # 	extract_files=False,
 # 	update_fstab=False,
 # 	install_first_time_setup=False,
-# 	unmount_file_systems=False,
-# 	eject_device=False,
+# 	unmount_file_systems=True,
+# 	eject_device=True,
 # )
 
 # For doing all the things

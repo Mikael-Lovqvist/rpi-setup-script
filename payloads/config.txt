@@ -1,0 +1,5 @@
+enable_uart=1
+gpu_mem=256
+start_file=start4.elf
+fixup_file=fixup4.dat
+#disable_camera_led=1
