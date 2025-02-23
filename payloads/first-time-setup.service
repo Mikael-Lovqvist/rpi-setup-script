@@ -1,0 +1,10 @@
+[Unit]
+Description=First-time setup script
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/first-time-setup.sh
+
+[Install]
+WantedBy=multi-user.target
